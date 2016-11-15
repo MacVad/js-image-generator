@@ -30,6 +30,14 @@ exports.generateImage = function (width, height, quality, callback) {
     }
 };
 
+/**
+ * Generates a random colored image and file name and saves to path provided (or /tmp/img/ by default)
+ * @param width width of the image
+ * @param height height of the image
+ * @param quality quality of the image
+ * @param directory where image will be saved, or /tmp/img by default
+ * @param callback callback
+ */
 exports.generateSaveImage = function (width, height, quality, outputDir, callback) {
     var pathToFile = outputDir || '/tmp/img/';
     var fileName = uuid.v4() + '.jpg';
