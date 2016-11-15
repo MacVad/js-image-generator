@@ -1,0 +1,6 @@
+{
+  "globalDependencies": {
+    "bluebird": "registry:dt/bluebird#3.0.0+20161007114152",
+    "uuid": "registry:dt/uuid#3.3.0+20160728152600"
+  }
+}
