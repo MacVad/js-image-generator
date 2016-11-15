@@ -43,16 +43,12 @@ function generateSaveImage(width, height, quality, outputDir, callback) {
     var fileName = uuid.v4() + '.jpg';
     var fullImagePath = path.resolve(pathToFile, fileName);
 
-    try {
-        generateImage(width, height, quality, function (err, image) {
-            fs.outputFile(fullImagePath, image, function (err) {
-                if (err) return callback(err);
-                callback(null, fullImagePath);
-            })
+    generateImage(width, height, quality, function (err, image) {
+        fs.outputFile(fullImagePath, image.data, function (err) {
+            if (err) return callback(err);
+            callback(null, fullImagePath);
         })
-    } catch (e) {
-        callback(e.message);
-    }
+    })
 
 }
 
