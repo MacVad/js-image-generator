@@ -1,6 +1,6 @@
 var Buffer = require('buffer').Buffer;
 var jpeg = require('jpeg-js');
-var fs = require('fs');
+var fs = require('fs-extra');
 var path = require('path');
 var uuid = require('uuid');
 
@@ -45,7 +45,7 @@ function generateSaveImage(width, height, quality, outputDir, callback) {
 
     try {
         generateImage(width, height, quality, function (err, image) {
-            fs.writeFile(fullImagePath, image, function (err) {
+            fs.outputFile(fullImagePath, image, function (err) {
                 if (err) return callback(err);
                 callback(null, fullImagePath);
             })

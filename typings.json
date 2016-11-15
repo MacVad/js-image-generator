@@ -1,6 +1,7 @@
 {
   "globalDependencies": {
     "bluebird": "registry:dt/bluebird#3.0.0+20161007114152",
+    "fs-extra": "registry:dt/fs-extra#0.0.0+20161004190449",
     "uuid": "registry:dt/uuid#3.3.0+20160728152600"
   }
 }
