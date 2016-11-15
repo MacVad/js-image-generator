@@ -11,7 +11,7 @@ var uuid = require('uuid');
  * @param quality quality of the image
  * @param callback callback
  */
-exports.generateImage = function (width, height, quality, callback) {
+function generateImage(width, height, quality, callback) {
 
     var frameData = new Buffer(width * height * 4);
     var i = 0;
@@ -38,7 +38,7 @@ exports.generateImage = function (width, height, quality, callback) {
  * @param directory where image will be saved, or /tmp/img by default
  * @param callback callback
  */
-exports.generateSaveImage = function (width, height, quality, outputDir, callback) {
+function generateSaveImage(width, height, quality, outputDir, callback) {
     var pathToFile = outputDir || '/tmp/img/';
     var fileName = uuid.v4() + '.jpg';
     var fullImagePath = path.resolve(pathToFile, fileName);
@@ -50,9 +50,13 @@ exports.generateSaveImage = function (width, height, quality, outputDir, callbac
                 callback(null, fullImagePath);
             })
         })
-    }
-    catch(e){
+    } catch (e) {
         callback(e.message);
     }
 
 }
+
+module.exports = {
+    generateImage: generateImage,
+    generateSaveImage: generateSaveImage
+};
